@@ -86,7 +86,7 @@ public class DatabaseSeeder {
         passport3.setNumber("K123456");
         passports.add(passport3);
 
-      passportRepository.saveAll(passports);
+        passportRepository.saveAll(passports);
     }
 
     private void seedStudentData() {
@@ -121,9 +121,9 @@ public class DatabaseSeeder {
             student3.setPassport(passport3);
             students.add(student3);
         }
-
         studentRepository.saveAll(students);
     }
+
     private void ReviewData() {
         List<Review> reviews = new ArrayList<>();
 
