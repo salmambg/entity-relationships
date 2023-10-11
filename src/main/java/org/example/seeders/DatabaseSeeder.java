@@ -108,7 +108,7 @@ public class DatabaseSeeder {
 
         Passport passport2 = passportRepository.findById(40002L).orElse(null);
         if (passport2 != null) {
-            student1.setPassport(passport2);
+            student2.setPassport(passport2);
             students.add(student2);
         }
 
