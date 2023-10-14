@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -15,6 +17,9 @@ public class Review {
     private long id;
     private String rating;
     private String description;
+
+    @ManyToOne
+    private Course course;
 
 
     @Override

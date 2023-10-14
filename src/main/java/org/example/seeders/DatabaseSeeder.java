@@ -126,24 +126,35 @@ public class DatabaseSeeder {
 
     private void ReviewData() {
         List<Review> reviews = new ArrayList<>();
+        // Review 1 associated with Course 10001
+        Course course1 = courseRepository.findById(10001L).orElse(null);
+        if (course1 != null) {
+            Review review1 = new Review();
+            review1.setId(50001);
+            review1.setRating("FIVE");
+            review1.setDescription("Great Course");
+            review1.setCourse(course1);
+            reviews.add(review1);
 
-        Review review1 = new Review();
-        review1.setId(50001);
-        review1.setRating("5");
-        review1.setDescription("Great Course");
-        reviews.add(review1);
+            Review review2 = new Review();
+            review2.setId(50002);
+            review2.setRating("FOUR");
+            review2.setDescription("Wonderful Course");
+            review2.setCourse(course1);
+            reviews.add(review2);
 
-        Review review2 = new Review();
-        review2.setId(50002);
-        review2.setRating("4");
-        review2.setDescription("Good Course");
-        reviews.add(review2);
+        }
 
-        Review review3 = new Review();
-        review3.setId(50003);
-        review3.setRating("5");
-        review3.setDescription("Wonderful Course");
-        reviews.add(review3);
+        // Review 3 associated with Course 10003
+        Course course3 = courseRepository.findById(10003L).orElse(null);
+        if (course3 != null) {
+            Review review3 = new Review();
+            review3.setId(50003);
+            review3.setRating("FIVE");
+            review3.setDescription("Awesome Course");
+            review3.setCourse(course3);
+            reviews.add(review3);
+        }
 
         reviewRepository.saveAll(reviews);
 
