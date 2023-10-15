@@ -28,11 +28,10 @@ public class MainJpaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        addHardcodedReviewsForCourse();
+        addReviewsForCourse();
     }
 
-    public void addHardcodedReviewsForCourse() {
-
+    public void addReviewsForCourse() {
         // Retrieve the course with ID 10003
         Course course = courseRepository.findById(10003L).orElse(null);
 

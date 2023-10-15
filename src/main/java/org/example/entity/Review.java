@@ -24,8 +24,6 @@ public class Review {
         this.rating = rating;
         this.description = description;
     }
-
-
     @Override
     public String toString() {
         return String.format("Review[%s %s]",rating, description);
