@@ -1,6 +1,5 @@
 package org.example;
 
-
 import org.example.entity.Course;
 import org.example.entity.Review;
 import org.example.repository.CourseRepository;
@@ -51,5 +50,4 @@ public class MainJpaApplication implements CommandLineRunner {
             reviewRepository.save(review2);
         }
     }
-
 }

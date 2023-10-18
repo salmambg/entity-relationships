@@ -34,14 +34,18 @@ public class Course {
     @Fetch(FetchMode.JOIN)
     private List<Review> reviews = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students = new ArrayList<>();
+    public void addStudent(Student student) {
+        this.students.add(student);
+    }
+
     public void addReview(Review review) {
         this.reviews.add(review);
     }
-
     public void removeReview(Review review) {
         this.reviews.remove(review);
     }
-
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +38,7 @@ public class DatabaseSeeder {
         seedPassportData();
         seedStudentData();
         ReviewData();
+        seedStudentCourseData();
         logger.info("finish insert course data");
     }
 
@@ -142,9 +142,7 @@ public class DatabaseSeeder {
             review2.setDescription("Wonderful Course");
             review2.setCourse(course1);
             reviews.add(review2);
-
         }
-
         // Review 3 associated with Course 10003
         Course course3 = courseRepository.findById(10003L).orElse(null);
         if (course3 != null) {
@@ -155,9 +153,38 @@ public class DatabaseSeeder {
             review3.setCourse(course3);
             reviews.add(review3);
         }
-
         reviewRepository.saveAll(reviews);
 
     }
+    private void seedStudentCourseData() {
+        List<Student> students = new ArrayList<>();
 
+        Course course1 = courseRepository.findById(10001L).orElse(null);
+        if (course1 != null) {
+            Student student1= new Student();
+            student1.setId(20001L);
+            student1.addCourses(course1);
+            students.add(student1);
+
+        }
+        Course course2 = courseRepository.findById(10002L).orElse(null);
+        if (course2 != null) {
+            Student student2= new Student();
+            student2.setId(20002L);
+            student2.addCourses(course2);
+            student2.addCourses(course1);
+            students.add(student2);
+        }
+
+        Student student3 = new Student();
+        student3.setId(20003L);
+        Course course3 = courseRepository.findById(10003L).orElse(null);
+
+        if (course1 != null && course3 != null) {
+            student3.addCourses(course1);
+            student3.addCourses(course3);
+            students.add(student3);
+        }
+        studentRepository.saveAll(students);
+    }
 }
