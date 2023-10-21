@@ -22,4 +22,12 @@ insert into Review(id,rating,description,course_id)
 values(50002,'FOUR', 'Wonderful Course',10001);
 insert into Review(id,rating,description,course_id)
 values(50003,'FIVE', 'Awesome Course',10003);
+insert into student_course(student_id,course_id)
+values(20001,10001);
+insert into student_course(student_id,course_id)
+values(20002,10001);
+insert into student_course(student_id,course_id)
+values(20003,10001);
+insert into student_course(student_id,course_id)
+values(20001,10003);
 
