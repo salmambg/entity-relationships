@@ -32,7 +32,6 @@ public class CourseRepositoryTest {
         }else {
             System.out.println("Course with ID 10001 not found.");
         }
-
     }
 
     @Test

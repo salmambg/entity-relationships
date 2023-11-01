@@ -4,25 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Passport {
+@MappedSuperclass
+public abstract class Employee {
     @Id
     private long id;
-    private String number;
-
-    @OneToOne
-    Student student;
-
+    private String name;
     @Override
     public String toString() {
-        return String.format("Passport[%s]", number);
+        return String.format("Employee[%s]", name);
     }
 }

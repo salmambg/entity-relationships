@@ -19,15 +19,11 @@ public class Student {
     @OneToOne
     private Passport passport;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "student_course",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> courses = new ArrayList<>();
-
-    public void addCourses(Course course) {
-        this.courses.add(course);
-    }
 
     @Override
     public String toString() {

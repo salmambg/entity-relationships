@@ -36,9 +36,6 @@ public class Course {
 
     @ManyToMany(mappedBy = "courses")
     private List<Student> students = new ArrayList<>();
-    public void addStudent(Student student) {
-        this.students.add(student);
-    }
 
     public void addReview(Review review) {
         this.reviews.add(review);
