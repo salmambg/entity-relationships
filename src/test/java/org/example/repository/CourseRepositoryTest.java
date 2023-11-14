@@ -5,6 +5,9 @@ import org.example.entity.Review;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
 import javax.transaction.Transactional;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DataJpaTest
 public class CourseRepositoryTest {
+
     @Autowired
     CourseRepository courseRepository;
     @Autowired
@@ -49,6 +53,17 @@ public class CourseRepositoryTest {
         }else {
             System.out.println("Review with ID 50001 not found.");
         }
+    }
+    @Test
+    public void pagination() {
+        PageRequest pageRequest = PageRequest.of(0,2);
+        Page<Course> firstPage = courseRepository.findAll(pageRequest);
+        System.out.println("First Page Content: " + firstPage.getContent());
+        assertEquals(2, firstPage.getContent().size());
+        firstPage.hasContent();
 
+        Page<Course> secondPage = courseRepository.findAll(firstPage.nextPageable());
+        assertEquals(2,secondPage.getContent().size());
+        secondPage.hasContent();
     }
 }

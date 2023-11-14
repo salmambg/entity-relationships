@@ -16,6 +16,12 @@ insert into courses(id, name)
 values(10002,'Spring in 50 Steps');
 insert into courses(id, name)
 values(10003,'Spring Boot in 100 Steps');
+insert into courses(id, name)
+values(10004,'JPA in steps by Steps');
+insert into courses(id, name)
+values(10005,'Spring in step by Steps');
+insert into courses(id, name)
+values(10006,'Spring Boot in step by steps');
 insert into Review(id,rating,description,course_id)
 values(50001,'FIVE', 'Great Course',10001);
 insert into Review(id,rating,description,course_id)

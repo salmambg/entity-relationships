@@ -125,7 +125,6 @@ public class DatabaseSeeder {
 
     private void ReviewData() {
         List<Review> reviews = new ArrayList<>();
-        // Review 1 associated with Course 10001
         Course course1 = courseRepository.findById(10001L).orElse(null);
         if (course1 != null) {
             Review review1 = new Review();
