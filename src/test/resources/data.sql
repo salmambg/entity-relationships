@@ -10,18 +10,18 @@ insert into Student(id,name,passport_id)
 values(20002,'Samiha',40002);
 insert into Student(id,name,passport_id)
 values(20003,'Sabiha', 40003);
-insert into courses(id, name)
-values(10001,'JPA in 50 Steps');
-insert into courses(id, name)
-values(10002,'Spring in 50 Steps');
-insert into courses(id, name)
-values(10003,'Spring Boot in 100 Steps');
-insert into courses(id, name)
-values(10004,'JPA in steps by Steps');
-insert into courses(id, name)
-values(10005,'Spring in step by Steps');
-insert into courses(id, name)
-values(10006,'Spring Boot in step by steps');
+insert into courses(id, name, is_deleted)
+values(10001,'JPA in 50 Steps',false);
+insert into courses(id, name, is_deleted)
+values(10002,'Spring in 50 Steps',false);
+insert into courses(id, name, is_deleted)
+values(10003,'Spring Boot in 100 Steps',false);
+insert into courses(id, name, is_deleted)
+values(10004,'JPA in steps by Steps', false);
+insert into courses(id, name, is_deleted)
+values(10005,'Spring in step by Steps',false);
+insert into courses(id, name, is_deleted)
+values(10006,'Spring Boot in step by steps',false);
 insert into Review(id,rating,description,course_id)
 values(50001,'FIVE', 'Great Course',10001);
 insert into Review(id,rating,description,course_id)

@@ -55,6 +55,11 @@ public class CourseRepositoryTest {
         }
     }
     @Test
+    public void deleteCourseID () {
+        courseRepository.deleteById(10002L);
+        assertNotNull(courseRepository.findById(10002L));
+    }
+    @Test
     public void pagination() {
         PageRequest pageRequest = PageRequest.of(0,2);
         Page<Course> firstPage = courseRepository.findAll(pageRequest);
